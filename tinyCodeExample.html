@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>A very boring deepleanjs page</title>
+</head>
+<body>
+    <div style="text-align:center;">
+        Open the Chrome Developer Tools and look in the Console. You should see
+        a Float32 arrray produced by multiplying a deeplearn array by a deeplearn scalar.
+    </div>
+
+    <!-- The line below imports the deeplearnjs library to use for reference in this HTML file -->
+    <script src="https://unpkg.com/deeplearn"></script>
+
+    <!-- The script below runs a computation with the Array1D
+    and Scalar structures from deeplearnjs.  Deeplearnjs runs the computation
+    runs on the computer's GPU (Graphics Processing Unit),
+    which is much faster than running on the CPU.  The speed
+    difference is irrelevant for this tiny example, but will
+    becoe critical for computing-intense applications, such as
+    training neural networks. -->
+
+    <script>
+        // The code delimited by the <script> tag is
+        // typescript. In general you'll place your typecript code in
+        //  a separate file from the html, but keeping it here is simpler for
+        // this tiny exmple.
+        const math = new deeplearn.NDArrayMathGPU();
+
+        // changed the vector and the scalar multipliers
+        const a = deeplearn.Array1D.new([2, 4, 5]);
+        const b = deeplearn.Scalar.new(1500);
+        const result = math.multiply(a, b);
+        console.log(result.getValues());
+        document.write("Array1D test values: " + result.getValues());
+        // changed the expected values
+        document.write("<p />The result should be" + "3000,6000,7500");
+    </script>
+</body>
+</html>
