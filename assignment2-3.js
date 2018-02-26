@@ -74,7 +74,7 @@ populateDatasets();
 //const showColor = false;
 
 // use these two lines for CIFAR
-const dataSet = dataSets.CIFAR_10;
+const dataSet = dataSets.MNIST;
 const showColor = true;
 
 // functions for setting up the training data and the test data
@@ -152,7 +152,7 @@ function addFcLayer(graph, previousLayer, index, hiddenUnits) {
 
 
 // Hyperparameters to experiment with
-const batchSize = 25;
+const batchSize = 500;
 const NUM_BATCHES = 500;
 
 // print training results every batchInterval number of batches
@@ -240,11 +240,11 @@ function runModel() {
 
   const convLayer1 = addConvLayer(graph, inputLayer, 1, 10, 2, 2, 16);
   const reLuLayer = addReluLayer(graph, convLayer1);
-  const convLayer2 = addConvLayer(graph, reLuLayer, 2, 4, 2, 2, 8);
-  const reLuLayer2 = addReluLayer(graph, convLayer2);
-  const convLayer3 = addConvLayer(graph, reLuLayer2, 2, 2, 2, 2, 8);
-  const reLuLayer4 = addReluLayer(graph, convLayer3);
-  const flattenLayer = addFlattenLayer(graph, reLuLayer4);
+  // const convLayer2 = addConvLayer(graph, reLuLayer, 2, 4, 2, 2, 8);
+  // const reLuLayer2 = addReluLayer(graph, convLayer2);
+  // const convLayer3 = addConvLayer(graph, reLuLayer2, 2, 2, 2, 2, 8);
+  // const reLuLayer4 = addReluLayer(graph, convLayer3);
+  const flattenLayer = addFlattenLayer(graph, reLuLayer);
   // const flattenLayer2 = addFlattenLayer(graph, reLuLayer5);
   const fcLayer1 = addFcLayer(graph, flattenLayer, 1, 10);
   const reLuLayer3 = addReluLayer(graph, fcLayer1);
@@ -354,7 +354,7 @@ function runModel() {
       console.log('*** prediction', i);
       console.log('true label:', trueLabel, 'predicted label:', topLabel, 'probability:', decimalToPercent(topProb));
       console.log('probabilities:', probs);
-      console.log("fraction correct", (n/i));
+      console.log("fraction correct", (n/(i+1)));
 
     }
 
