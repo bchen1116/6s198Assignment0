@@ -1,0 +1,54 @@
+<html>
+
+<head>
+   <title>6.s198 Assignments 5 </title>
+   <script src="https://unpkg.com/deeplearn@0.5.0"></script>
+   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<style>
+  body {margin-top: 50px; margin-left: 10%; margin-right: 10%; font-family:Arial,Verdana, Helvetica, sans-serif; color:black;}
+</style>
+
+<body>
+
+<h2>6.S198 code to study and modify for assignment 5:
+  GAN Networks</h2>
+
+This page runs the script in the file assignment5.js
+
+<p>
+When you load this page it will do training and testing.  The output
+will appear in the Javascript console, not on this Web page.
+
+<br />To work on the assignment, use the Chrome developer tools to view
+the console.
+
+<br />
+Then edit the .js file and reload the browser page.
+</p>
+
+<!-- 
+<p>The script includes a command <em>showimage</em> that you can
+run in the console.   After training and testing, running
+<blockquote>
+showimage(<em>n</em>)
+</blockquote>
+will show the <em>n</em>th test image.
+It will appear below on this page.
+</p>
+ -->
+
+<script src="assignment5.js"></script>
+<button onclick="runModel('assignment5')">Train Assignment 5 Model</button>
+
+<div id="imageHolder"></div>
+
+<div id="labelHolder">
+</div>
+
+<div id="tester" style="width:800px;height:450px;"></div>
+
+</body>
+</html>
+
